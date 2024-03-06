@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/onboarding/onboarding.dart';
 import 'package:flutter_news/theme/theme.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppTheme.light,
-      home: const Scaffold(),
+      home: const OnboardingPage(),
     );
   }
 }

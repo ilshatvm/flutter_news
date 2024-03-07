@@ -26,6 +26,11 @@ class AppTheme {
       useMaterial3: true,
       colorScheme: _colorSchemeLight,
       filledButtonTheme: _filledButtonThemeData,
+      inputDecorationTheme: const InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        ),
+      ),
     );
   }
 }

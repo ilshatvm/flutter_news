@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/login/login.dart';
 import 'package:flutter_news/theme/theme.dart';
-import 'package:flutter_news/welcome/welcome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppTheme.light,
-      home: const WelcomePage(),
+      home: const SignInPage(),
     );
   }
 }

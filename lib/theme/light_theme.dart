@@ -26,14 +26,49 @@ class AppTheme {
       useMaterial3: true,
       colorScheme: _colorSchemeLight,
       filledButtonTheme: _filledButtonThemeData,
+      outlinedButtonTheme: _outlinedButtonThemeData,
       inputDecorationTheme: const InputDecorationTheme(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12.0)),
         ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+          borderSide: BorderSide(color: AppColors.greyLighter),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+          borderSide: BorderSide(color: AppColors.greyLighter),
+        ),
+        filled: true,
+        fillColor: AppColors.greyLighter,
+        hintStyle: TextStyle(
+          color: AppColors.greyPrimary,
+          fontSize: 16.0,
+          fontWeight: FontWeight.w500,
+        ),
+        prefixIconColor: AppColors.greyPrimary,
       ),
     );
   }
 }
+
+const _outlinedButtonThemeData = OutlinedButtonThemeData(
+  style: ButtonStyle(
+    minimumSize: MaterialStatePropertyAll(Size.fromHeight(56.0)),
+    side: MaterialStatePropertyAll(BorderSide(color: AppColors.greyLighter)),
+    textStyle: MaterialStatePropertyAll(
+      TextStyle(
+        fontSize: 16.0,
+        fontWeight: FontWeight.w600,
+      ),
+    ),
+    shape: MaterialStatePropertyAll(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+      ),
+    ),
+  ),
+);
 
 const FilledButtonThemeData _filledButtonThemeData = FilledButtonThemeData(
   style: ButtonStyle(

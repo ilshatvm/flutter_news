@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_news/common/common.dart';
 import 'package:flutter_news/theme/theme.dart';
 
 class SignInPage extends StatelessWidget {
@@ -22,22 +21,11 @@ class SignInPage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        "Welcome Back 👋",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                        ),
+                      const AppTitle(
+                        title: "Welcome Back 👋",
+                        description:
+                            "I am happy to see you again. You can continue where you left off by logging in",
                       ),
-                      const SizedBox(height: 8.0),
-                      const Text(
-                        "I am happy to see you again. You can continue where you left off by logging in",
-                        style: TextStyle(
-                          color: AppColors.greyPrimary,
-                          fontSize: 16.0,
-                        ),
-                      ),
-                      const SizedBox(height: 32.0),
                       Form(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,

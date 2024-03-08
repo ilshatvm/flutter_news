@@ -27,6 +27,33 @@ class AppTheme {
       colorScheme: _colorSchemeLight,
       filledButtonTheme: _filledButtonThemeData,
       outlinedButtonTheme: _outlinedButtonThemeData,
+      iconTheme: const IconThemeData(color: AppColors.greyPrimary),
+      searchBarTheme: const SearchBarThemeData(
+        textStyle: MaterialStatePropertyAll(
+          TextStyle(
+            color: AppColors.blackPrimary,
+            fontSize: 16.0,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        hintStyle: MaterialStatePropertyAll(
+          TextStyle(
+            color: AppColors.greyPrimary,
+            fontSize: 16.0,
+            fontWeight: FontWeight.w500,
+            height: 2.0,
+          ),
+        ),
+        backgroundColor: MaterialStatePropertyAll(AppColors.greyLighter),
+        elevation: MaterialStatePropertyAll(0.0),
+        padding:
+            MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 16.0)),
+        shape: MaterialStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(12.0)),
+          ),
+        ),
+      ),
       inputDecorationTheme: const InputDecorationTheme(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(12.0)),

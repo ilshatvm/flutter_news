@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/l10n/l10n.dart';
 import 'package:flutter_news/theme/theme.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -6,6 +7,7 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -18,21 +20,21 @@ class WelcomePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(
+                  SizedBox(
                     child: Column(
                       children: [
                         Text(
-                          "Nuntium",
-                          style: TextStyle(
+                          l10n.welcomePageTitle,
+                          style: const TextStyle(
                             fontSize: 34.0,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        SizedBox(height: 24.0),
+                        const SizedBox(height: 24.0),
                         Text(
-                          "All news in one place, be the\nfirst to know last news",
+                          l10n.welcomePageDesctiption,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: AppColors.greyPrimary,
                             fontSize: 16.0,
                           ),
@@ -43,7 +45,7 @@ class WelcomePage extends StatelessWidget {
                   const SizedBox(height: 64.0),
                   FilledButton(
                     onPressed: () {},
-                    child: const Text("Get Started"),
+                    child: Text(l10n.getStarted),
                   ),
                 ],
               ),

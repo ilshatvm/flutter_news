@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_news/l10n/l10n.dart';
 import 'package:flutter_news/theme/theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -14,6 +15,7 @@ class OnboardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -27,19 +29,19 @@ class OnboardingPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const SizedBox(height: 34.0),
-                  const Text(
-                    "First to know",
+                  Text(
+                    l10n.onboardingTitle,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 24.0),
-                  const Text(
-                    "All news in one place, be the\nfirst to know last news",
+                  Text(
+                    l10n.onboardingDesctiption,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.greyPrimary,
                       fontSize: 16.0,
                     ),
@@ -47,7 +49,7 @@ class OnboardingPage extends StatelessWidget {
                   const SizedBox(height: 64.0),
                   FilledButton(
                     onPressed: () {},
-                    child: const Text("Next"),
+                    child: Text(l10n.next),
                   ),
                 ],
               ),

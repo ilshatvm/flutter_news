@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_news/l10n/l10n.dart';
+import 'package:flutter_news/onboarding/onboarding.dart';
 import 'package:flutter_news/theme/theme.dart';
-
-import 'home/home.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +21,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppTheme.light,
-      home: const HomePage(),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: const OnboardingPage(),
     );
   }
 }

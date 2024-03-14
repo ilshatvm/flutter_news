@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_news/home/home.dart';
 import 'package:flutter_news/l10n/l10n.dart';
-import 'package:flutter_news/onboarding/onboarding.dart';
 import 'package:flutter_news/theme/theme.dart';
 
 void main() {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const OnboardingPage(),
+      home: const HomePage(),
     );
   }
 }

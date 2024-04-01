@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_news/common/app_icons.dart';
 import 'package:flutter_news/common/common.dart';
 import 'package:flutter_news/theme/app_colors.dart';
 

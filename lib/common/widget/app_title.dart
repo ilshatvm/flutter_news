@@ -9,22 +9,17 @@ class AppTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
-            ),
-            const SizedBox(height: 8.0),
-            Text(
-              description,
-              style:
-                  const TextStyle(color: AppColors.greyPrimary, fontSize: 16.0),
-            ),
-          ],
+        Text(
+          title,
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+        ),
+        const SizedBox(height: 8.0),
+        Text(
+          description,
+          style: const TextStyle(color: AppColors.greyPrimary, fontSize: 16.0),
         ),
       ],
     );

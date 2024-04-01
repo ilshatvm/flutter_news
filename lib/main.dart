@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_news/l10n/l10n.dart';
-import 'package:flutter_news/onboarding/onboarding.dart';
+import 'package:flutter_news/login/view/sign_in_page.dart';
 import 'package:flutter_news/theme/theme.dart';
 
 void main() {
@@ -10,6 +10,7 @@ void main() {
     SystemUiMode.manual,
     overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top],
   );
+
   runApp(const MyApp());
 }
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const OnboardingPage(),
+      home: const SignInPage(),
     );
   }
 }

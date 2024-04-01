@@ -10,6 +10,7 @@ void main() {
     SystemUiMode.manual,
     overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top],
   );
+
   runApp(const MyApp());
 }
 

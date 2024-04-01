@@ -72,6 +72,7 @@ class HomePage extends StatelessWidget {
                 background: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20.0),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(height: 28.0),
                       AppTitle(

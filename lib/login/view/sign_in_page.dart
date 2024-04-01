@@ -24,8 +24,9 @@ class SignInPage extends StatelessWidget {
                       const AppTitle(
                         title: "Welcome Back 👋",
                         description:
-                            "I am happy to see you again. You can continue where you left off by logging in",
+                            "I am happy to see you again. You can\ncontinue where you left off by logging in",
                       ),
+                      const SizedBox(height: 32.0),
                       Form(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,

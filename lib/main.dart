@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_news/home/home.dart';
+import 'package:flutter_news/categories/categories.dart';
+import 'package:flutter_news/home/view/home_page.dart';
 import 'package:flutter_news/l10n/l10n.dart';
 import 'package:flutter_news/theme/theme.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const HomePage(),
+      home: const CategoriesPage(),
     );
   }
 }

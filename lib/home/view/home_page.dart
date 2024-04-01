@@ -148,57 +148,11 @@ class HomePage extends StatelessWidget {
                     itemCount: newsList.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return Container(
-                        height: 256.0,
-                        width: 256.0,
-                        alignment: Alignment.bottomLeft,
-                        padding: const EdgeInsets.all(24.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12.0),
-                          color: Colors.red,
-                          image: DecorationImage(
-                            image: AssetImage(newsList[index].imageUrl),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                      return NewsItemWidgetMedium(
+                        news: newsList[index],
                         margin: EdgeInsets.only(
                           right: index == newsList.length - 1 ? 20.0 : 16.0,
                           left: index == 0 ? 20.0 : 0.0,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            const Icon(
-                              AppIcons.bookmark,
-                              color: Colors.white,
-                            ),
-                            SizedBox(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Text(
-                                    newsList[index].tag.toUpperCase(),
-                                    style: const TextStyle(
-                                      color: AppColors.greyLighter,
-                                      fontSize: 12.0,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8.0),
-                                  Text(
-                                    newsList[index].title,
-                                    maxLines: 3,
-                                    style: const TextStyle(
-                                      color: AppColors.greyLighter,
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
                         ),
                       );
                     },
@@ -234,49 +188,8 @@ class HomePage extends StatelessWidget {
             ),
             SliverList.builder(
               itemCount: newsList.length,
-              itemBuilder: (context, index) => Container(
-                margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 16.0),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 96.0,
-                      width: 96.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12.0),
-                        color: Colors.red,
-                        image: DecorationImage(
-                          image: AssetImage(newsList[index].imageUrl),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 16.0),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width - 152.0,
-                      child: const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "UI/UX Design",
-                            style: TextStyle(
-                              color: AppColors.greyPrimary,
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          Text(
-                            "A Simple Trick For Creating Color Palettes Quickly",
-                            style: TextStyle(
-                              color: AppColors.blackPrimary,
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+              itemBuilder: (context, index) => NewsItemWidgetSmall(
+                news: newsList[index],
               ),
             ),
           ],
@@ -337,6 +250,132 @@ class HomePage extends StatelessWidget {
             currentIndex: 0,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class NewsItemWidgetSmall extends StatelessWidget {
+  const NewsItemWidgetSmall({
+    super.key,
+    required this.news,
+  });
+
+  final News news;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 16.0),
+      child: Row(
+        children: [
+          Container(
+            height: 96.0,
+            width: 96.0,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12.0),
+              color: Colors.red,
+              image: DecorationImage(
+                image: AssetImage(news.imageUrl),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(width: 16.0),
+          SizedBox(
+            width: MediaQuery.of(context).size.width - 152.0,
+            height: 96.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  news.tag,
+                  style: const TextStyle(
+                    color: AppColors.greyPrimary,
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+                Text(
+                  news.title,
+                  maxLines: 2,
+                  style: const TextStyle(
+                    color: AppColors.blackPrimary,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class NewsItemWidgetMedium extends StatelessWidget {
+  const NewsItemWidgetMedium({
+    super.key,
+    required this.news,
+    required this.margin,
+  });
+
+  final EdgeInsets margin;
+
+  final News news;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 256.0,
+      width: 256.0,
+      alignment: Alignment.bottomLeft,
+      padding: const EdgeInsets.all(24.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.0),
+        color: Colors.red,
+        image: DecorationImage(
+          image: AssetImage(news.imageUrl),
+          fit: BoxFit.cover,
+        ),
+      ),
+      margin: margin,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          const Icon(
+            AppIcons.bookmark,
+            color: Colors.white,
+          ),
+          SizedBox(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  news.tag.toUpperCase(),
+                  style: const TextStyle(
+                    color: AppColors.greyLighter,
+                    fontSize: 12.0,
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                Text(
+                  news.title,
+                  maxLines: 3,
+                  style: const TextStyle(
+                    color: AppColors.greyLighter,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

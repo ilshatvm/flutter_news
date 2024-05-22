@@ -217,7 +217,6 @@ class NewsItemWidgetSmall extends StatelessWidget {
             width: 96.0,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.0),
-              color: Colors.red,
               image: DecorationImage(
                 image: AssetImage(news.imageUrl),
                 fit: BoxFit.cover,
@@ -278,7 +277,6 @@ class NewsItemWidgetMedium extends StatelessWidget {
       padding: const EdgeInsets.all(24.0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
-        color: Colors.red,
         image: DecorationImage(
           image: AssetImage(news.imageUrl),
           fit: BoxFit.cover,

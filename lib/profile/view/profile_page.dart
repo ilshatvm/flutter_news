@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_news/app/app_router.dart';
+import 'package:flutter_news/routes/app_router.dart';
 import 'package:flutter_news/common/common.dart';
 import 'package:flutter_news/theme/theme.dart';
 

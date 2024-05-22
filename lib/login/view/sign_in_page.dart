@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_news/app/app_router.dart';
 import 'package:flutter_news/common/common.dart';
+import 'package:flutter_news/routes/routes.dart';
 import 'package:flutter_news/theme/theme.dart';
+import 'package:go_router/go_router.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -9,6 +10,7 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final router = GoRouter.of(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: SizedBox(
@@ -35,26 +37,33 @@ class SignInPage extends StatelessWidget {
                             TextFormField(
                               decoration: const InputDecoration(
                                 hintText: "Email Address",
-                                prefixIcon: Icon(Icons.email),
+                                prefixIcon: Icon(AppIcons.envelope),
                               ),
                             ),
                             const SizedBox(height: 16.0),
                             TextFormField(
                               decoration: const InputDecoration(
                                 hintText: "Password",
-                                prefixIcon: Icon(Icons.lock),
+                                prefixIcon: Icon(AppIcons.lock),
+                              ),
+                            ),
+                            const SizedBox(height: 8.0),
+                            InkWell(
+                              borderRadius: BorderRadius.circular(8.0),
+                              onTap: () => router.goNamed(PAGES.forgot.name),
+                              child: const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Forgot Password?",
+                                  style: TextStyle(
+                                    color: AppColors.greyPrimary,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
                               ),
                             ),
                             const SizedBox(height: 16.0),
-                            const Text(
-                              "Forgot Password?",
-                              style: TextStyle(
-                                color: AppColors.greyPrimary,
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            const SizedBox(height: 24.0),
                             FilledButton(
                               onPressed: () {
                                 loginInfo.login('userName');

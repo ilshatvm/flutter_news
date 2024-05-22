@@ -194,62 +194,6 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(12.0)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black38,
-              spreadRadius: 0.0,
-              blurRadius: 0.0,
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(12.0),
-            topRight: Radius.circular(12.0),
-          ),
-          child: BottomNavigationBar(
-            elevation: 0.0,
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            unselectedItemColor: AppColors.greyLight,
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 12.0),
-                  child: Icon(AppIcons.estate),
-                ),
-                label: "Home",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 12.0),
-                  child: Icon(AppIcons.category),
-                ),
-                label: "Categories",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 12.0),
-                  child: Icon(AppIcons.bookmark),
-                ),
-                label: "Favorites",
-              ),
-              BottomNavigationBarItem(
-                icon: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 12.0),
-                  child: Icon(AppIcons.user),
-                ),
-                label: "Profile",
-              ),
-            ],
-            currentIndex: 0,
-          ),
-        ),
-      ),
     );
   }
 }

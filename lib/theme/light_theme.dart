@@ -29,14 +29,14 @@ class AppTheme {
       outlinedButtonTheme: _outlinedButtonThemeData,
       iconTheme: const IconThemeData(color: AppColors.greyPrimary),
       searchBarTheme: const SearchBarThemeData(
-        textStyle: MaterialStatePropertyAll(
+        textStyle: WidgetStatePropertyAll(
           TextStyle(
             color: AppColors.blackPrimary,
             fontSize: 16.0,
             fontWeight: FontWeight.w500,
           ),
         ),
-        hintStyle: MaterialStatePropertyAll(
+        hintStyle: WidgetStatePropertyAll(
           TextStyle(
             color: AppColors.greyPrimary,
             fontSize: 16.0,
@@ -44,11 +44,10 @@ class AppTheme {
             height: 2.0,
           ),
         ),
-        backgroundColor: MaterialStatePropertyAll(AppColors.greyLighter),
-        elevation: MaterialStatePropertyAll(0.0),
-        padding:
-            MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 16.0)),
-        shape: MaterialStatePropertyAll(
+        backgroundColor: WidgetStatePropertyAll(AppColors.greyLighter),
+        elevation: WidgetStatePropertyAll(0.0),
+        padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 16.0)),
+        shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(12.0)),
           ),
@@ -81,15 +80,15 @@ class AppTheme {
 
 const _outlinedButtonThemeData = OutlinedButtonThemeData(
   style: ButtonStyle(
-    minimumSize: MaterialStatePropertyAll(Size.fromHeight(56.0)),
-    side: MaterialStatePropertyAll(BorderSide(color: AppColors.greyLighter)),
-    textStyle: MaterialStatePropertyAll(
+    minimumSize: WidgetStatePropertyAll(Size.fromHeight(56.0)),
+    side: WidgetStatePropertyAll(BorderSide(color: AppColors.greyLighter)),
+    textStyle: WidgetStatePropertyAll(
       TextStyle(
         fontSize: 16.0,
         fontWeight: FontWeight.w600,
       ),
     ),
-    shape: MaterialStatePropertyAll(
+    shape: WidgetStatePropertyAll(
       RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(12.0)),
       ),
@@ -99,14 +98,14 @@ const _outlinedButtonThemeData = OutlinedButtonThemeData(
 
 const FilledButtonThemeData _filledButtonThemeData = FilledButtonThemeData(
   style: ButtonStyle(
-    minimumSize: MaterialStatePropertyAll(Size.fromHeight(56.0)),
-    textStyle: MaterialStatePropertyAll(
+    minimumSize: WidgetStatePropertyAll(Size.fromHeight(56.0)),
+    textStyle: WidgetStatePropertyAll(
       TextStyle(
         fontSize: 16.0,
         fontWeight: FontWeight.w600,
       ),
     ),
-    shape: MaterialStatePropertyAll(
+    shape: WidgetStatePropertyAll(
       RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(12.0))),
     ),
@@ -121,10 +120,7 @@ const ColorScheme _colorSchemeLight = ColorScheme(
   onSecondary: Colors.white,
   error: AppColors.purplePrimary,
   onError: AppColors.purplePrimary,
-  background: Colors.white,
-  onBackground: AppColors.purplePrimary,
   surface: Colors.white,
   onSurface: AppColors.purplePrimary,
-  surfaceVariant: AppColors.greyLighter,
   surfaceTint: Colors.transparent,
 );

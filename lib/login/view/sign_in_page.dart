@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/app/app_router.dart';
 import 'package:flutter_news/common/common.dart';
 import 'package:flutter_news/theme/theme.dart';
 
@@ -55,7 +56,9 @@ class SignInPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 24.0),
                             FilledButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                loginInfo.login('userName');
+                              },
                               child: const Text("Sign In"),
                             ),
                           ],

@@ -1,4 +1,6 @@
 enum PAGES {
+  onboarding,
+  welcome,
   home,
   categories,
   bookmarks,
@@ -11,6 +13,8 @@ enum PAGES {
 extension AppPageExtension on PAGES {
   String get path {
     return switch (this) {
+      PAGES.onboarding => "/onboarding",
+      PAGES.welcome => "/onboarding/welcome",
       PAGES.home => "/",
       PAGES.categories => "/categories",
       PAGES.bookmarks => "/bookmarks",
@@ -23,6 +27,8 @@ extension AppPageExtension on PAGES {
 
   String get name {
     return switch (this) {
+      PAGES.onboarding => "onboarding",
+      PAGES.welcome => "welcome",
       PAGES.home => "home",
       PAGES.categories => "categories",
       PAGES.bookmarks => "bookmarks",
@@ -35,6 +41,8 @@ extension AppPageExtension on PAGES {
 
   String get title {
     return switch (this) {
+      PAGES.onboarding => "Onboarding",
+      PAGES.welcome => "Welcome",
       PAGES.home => "Home",
       PAGES.categories => "Categories",
       PAGES.bookmarks => "Bookmarks",

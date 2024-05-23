@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news/l10n/l10n.dart';
+import 'package:flutter_news/routes/routes.dart';
 import 'package:flutter_news/theme/theme.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -16,6 +18,7 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final router = GoRouter.of(context);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -48,7 +51,9 @@ class OnboardingPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 64.0),
                   FilledButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      router.goNamed(PAGES.welcome.name);
+                    },
                     child: Text(l10n.next),
                   ),
                 ],

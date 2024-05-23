@@ -8,12 +8,14 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final appRouter = AppRouter();
+
     return MaterialApp.router(
       title: 'Flutter Demo',
       theme: AppTheme.light,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      routerConfig: router,
+      routerConfig: appRouter.router,
     );
   }
 }

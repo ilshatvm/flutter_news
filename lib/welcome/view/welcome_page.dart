@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/l10n/l10n.dart';
+import 'package:flutter_news/routes/routes.dart';
 import 'package:flutter_news/theme/theme.dart';
+import 'package:go_router/go_router.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -8,6 +10,7 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final router = GoRouter.of(context);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -44,7 +47,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                   const SizedBox(height: 64.0),
                   FilledButton(
-                    onPressed: () {},
+                    onPressed: () => router.goNamed(PAGES.login.name),
                     child: Text(l10n.getStarted),
                   ),
                 ],

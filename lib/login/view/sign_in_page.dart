@@ -1,11 +1,27 @@
+import 'package:auth_repository/auth_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_news/common/common.dart';
+import 'package:flutter_news/login/bloc/login_bloc.dart';
 import 'package:flutter_news/routes/routes.dart';
 import 'package:flutter_news/theme/theme.dart';
 import 'package:go_router/go_router.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) =>
+          LoginBloc(authRepository: context.read<AuthRepository>()),
+      child: const SignInView(),
+    );
+  }
+}
+
+class SignInView extends StatelessWidget {
+  const SignInView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +82,10 @@ class SignInPage extends StatelessWidget {
                             const SizedBox(height: 16.0),
                             FilledButton(
                               onPressed: () {
-                                loginInfo.login('userName');
+                                context
+                                    .read<LoginBloc>()
+                                    .add(const LogInWithCredentials());
+                                // loginInfo.login('userName');
                               },
                               child: const Text("Sign In"),
                             ),
@@ -86,7 +105,11 @@ class SignInPage extends StatelessWidget {
                   Column(
                     children: [
                       OutlinedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context
+                              .read<LoginBloc>()
+                              .add(const LogInWithGoogle());
+                        },
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

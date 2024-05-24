@@ -90,7 +90,7 @@ class ProfilePage extends StatelessWidget {
                 title: 'Sign Out',
                 actionWidget: const Icon(AppIcons.signout),
                 onPressed: () {
-                  loginInfo.logout();
+                  // loginInfo.logout();
                 },
               ),
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_news/app/bloc/app_bloc.dart';
 import 'package:flutter_news/onboarding/view/onboarding_page.dart';
 import 'package:flutter_news/routes/routes.dart';
 import 'package:flutter_news/bookmarks/bookmarks.dart';
@@ -7,35 +8,19 @@ import 'package:flutter_news/home/home.dart';
 import 'package:flutter_news/login/login.dart';
 import 'package:flutter_news/login/view/forgot_password_page.dart';
 import 'package:flutter_news/profile/profile.dart';
+import 'package:flutter_news/routes/utils/go_router_refresh_stream.dart';
 import 'package:flutter_news/welcome/welcome.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginInfo extends ChangeNotifier {
-  String get userName => _userName;
-  String _userName = '';
-  bool get loggedIn => _userName.isNotEmpty;
-
-  void login(String userName) {
-    _userName = userName;
-    notifyListeners();
-  }
-
-  void logout() {
-    _userName = '';
-    notifyListeners();
-  }
-}
-
-final loginInfo = LoginInfo();
 const _showOnboardingScreen = true;
 
-final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
-final _navigatorKey = GlobalKey<NavigatorState>(debugLabel: 'navigator');
-final _loginKey = GlobalKey<NavigatorState>(debugLabel: 'login');
-
 class AppRouter {
-  AppRouter();
+  final AppBloc bloc;
+
+  AppRouter({required this.bloc});
+  final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
+  final _navigatorKey = GlobalKey<NavigatorState>(debugLabel: 'navigator');
+  final _loginKey = GlobalKey<NavigatorState>(debugLabel: 'login');
 
   get router => _router;
 
@@ -44,27 +29,27 @@ class AppRouter {
     navigatorKey: _rootNavigatorKey,
     initialLocation: PAGES.onboarding.path,
     redirect: (contex, state) {
-      final isOnLogin = state.matchedLocation == PAGES.login.path;
-      final isOnForgot = state.matchedLocation == PAGES.forgot.path;
-      final isOnOnboard = state.matchedLocation == PAGES.onboarding.path;
-      final isOnWelcome = state.matchedLocation == PAGES.welcome.path;
-      final isLoggedIn = loginInfo.loggedIn;
+      // final onboardIn = bloc.state == const AppState.unauthenticated();
+      // final onboardingIn = state.matchedLocation == PAGES.onboarding.path;
+      final isNotAuth = bloc.state == const AppState.unauthenticated();
+      final loggingIn = state.matchedLocation == PAGES.login.path;
+      // if (bloc.state is NotAuthenticated) return PAGES.login.path;
+      // if (onboardIn) return onboardingIn ? null : PAGES.onboarding.path;
+      if (isNotAuth) return loggingIn ? null : PAGES.login.path;
+      if (isNotAuth) return loggingIn ? PAGES.home.path : state.path;
 
-      if (isOnOnboard && _showOnboardingScreen && !isLoggedIn) {
-        return PAGES.onboarding.path;
-      }
+      // final isOnLogin = state.matchedLocation == PAGES.login.path;
 
-      if (isOnWelcome && !isLoggedIn && _showOnboardingScreen) {
-        return PAGES.welcome.path;
-      }
-      if (!isOnLogin && !isOnForgot && !isLoggedIn && !isOnOnboard) {
-        return PAGES.login.path;
-      }
-      if ((isOnLogin || isOnForgot) && isLoggedIn) return PAGES.home.path;
-      if (isOnForgot && !isLoggedIn) return PAGES.forgot.path;
+      // final isOnOnboard = state.matchedLocation == PAGES.onboarding.path;
+      // final isAutneticated = bloc.state.status == AppStatus.authenticated;
+
+      // if (isOnOnboard && _showOnboardingScreen && !isLoggedIn) {
+      //   return PAGES.onboarding.path;
+      // }
+
       return null;
     },
-    refreshListenable: loginInfo,
+    refreshListenable: GoRouterRefreshStream(bloc.stream),
     routes: <RouteBase>[
       ShellRoute(
         navigatorKey: _loginKey,
